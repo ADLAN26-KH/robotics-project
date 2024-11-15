@@ -1,0 +1,3 @@
+this programme for an RFID with micro servo and lcd led 
+so i programme a smart garrage that when you put the right id the garrager opened and the lcd mark "welcome"
+for the wrong id you will see in THE LCD 'wrong card' and the red led turn on same with alarm sound 
