@@ -1,0 +1,47 @@
+const int BLOCK_15 = 7;
+const int BLOCK_24 = 8;
+const int BLOCK_41 = 9;
+const int BLOCK_50 = 10;// Button connected to pin 7
+int buttonState1 = 0;
+int buttonState2 = 0;
+int buttonState3 = 0;
+int buttonState4 = 0;
+
+void setup() {
+  pinMode(BLOCK_15, INPUT_PULLUP);
+  pinMode(BLOCK_24, INPUT_PULLUP);
+  pinMode(BLOCK_41, INPUT_PULLUP);
+  pinMode(BLOCK_50, INPUT_PULLUP);// Internal pull-up resistor
+  Serial.begin(9600); // UART initialization
+}
+
+void loop() {
+  buttonState1 = digitalRead(BLOCK_15);
+  buttonState2 = digitalRead(BLOCK_24);
+  buttonState3 = digitalRead(BLOCK_41);
+  buttonState4 = digitalRead(BLOCK_50);// Read button state
+
+  if (buttonState1 == LOW) { // Button is pressed
+    Serial.println("ON15"); // Send ON signal
+    delay(200);} // Debounce delay
+  
+  else if (buttonState2 == LOW) { // Button is pressed
+    Serial.println("ON24"); // Send ON signal
+    delay(200); } // Debounce delay
+  
+     else if (buttonState3 == LOW) { // Button is pressed
+    Serial.println("ON41"); // Send ON signal
+       delay(200);} // Debounce delay
+  
+      else if (buttonState4 == LOW) { // Button is pressed
+    Serial.println("ON50"); // Send ON signal
+        delay(200);}// Debounce delay 
+  
+  else {
+    Serial.println("OFF15");
+    Serial.println("OFF24");
+    Serial.println("OFF41");
+    Serial.println("OFF50");// Send OFF signal
+    delay(200); // Debounce delay
+  }
+}
